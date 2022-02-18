@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loginUser } from "./../redux/actions/LoginAction-2";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -19,7 +21,11 @@ class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+
+    const user = this.state;
+    console.log(user);
+
+    this.props.loginUser(user);
   };
 
   render() {
@@ -54,5 +60,15 @@ class LoginForm extends Component {
     );
   }
 }
+// state->points->reducer->rootReducer->login and product
+const mapStateToProps = (state) => {
+  return {
+    login: state.login,
+  };
+};
 
-export default LoginForm;
+const mapDispatchToProps = {
+  loginUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

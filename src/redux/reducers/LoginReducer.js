@@ -15,7 +15,6 @@ export const LoginReducer = (state = initialState, action) => {
         isLoggedIn: true,
         user: action.payload,
       };
-      break;
     default:
       return state;
   }
