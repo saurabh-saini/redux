@@ -1,14 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import LoginForm from "./components/LoginForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>This is a App</h1>
-      </header>
-    </div>
+    <>
+      <h1>Login Form</h1>
+      <LoginForm />
+    </>
   );
-}
+};
 
 export default App;
